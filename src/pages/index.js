@@ -1,3 +1,11 @@
-import React from "react"
+import React from "react";
+import MainLayout from "../templates/MainLayout.component";
+import { Link } from "gatsby";
 
-export default () => <div>Hello kjs world!</div>
+export default () => (
+  <>
+    <MainLayout>
+      Hello kjs world! <Link to="blog">blog</Link>
+    </MainLayout>
+  </>
+);

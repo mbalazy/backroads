@@ -1,10 +1,13 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+// const path = require("path");
 
 module.exports = {
-  /* Your site config here */
   plugins: [],
-}
+};
+
+// exports.onCreateWebpackConfig = ({ stage, actions }) => {
+//   actions.setWebpackConfig({
+//     resolve: {
+//       modules: [path.resolve(__dirname, "src"), "node_modules"],
+//     },
+//   });
+// };
