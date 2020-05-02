@@ -1,11 +1,13 @@
-import React from "react";
-import MainLayout from "../templates/MainLayout.component";
-import { Link } from "gatsby";
+import React from 'react';
+import MainLayout from 'templates/MainLayout.component';
+import { Link } from 'gatsby';
 
-export default () => (
+const Index = () => (
   <>
     <MainLayout>
-      Hello kjs world! <Link to="blog">blog</Link>
+      <Link to="tours">tours</Link>
     </MainLayout>
   </>
 );
+
+export default Index;

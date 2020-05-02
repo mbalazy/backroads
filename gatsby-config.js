@@ -1,13 +1,19 @@
-// const path = require("path");
-
 module.exports = {
-  plugins: [],
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.svg$/,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+        displayName: true,
+      },
+    },
+  ],
 };
-
-// exports.onCreateWebpackConfig = ({ stage, actions }) => {
-//   actions.setWebpackConfig({
-//     resolve: {
-//       modules: [path.resolve(__dirname, "src"), "node_modules"],
-//     },
-//   });
-// };

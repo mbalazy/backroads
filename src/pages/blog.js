@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
+import MainLayout from 'templates/MainLayout.component';
 
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
 
 const blog = () => {
   return (
-    <div>
+    <MainLayout>
       blog page <Link to="/">home</Link>
-    </div>
+    </MainLayout>
   );
 };
 
