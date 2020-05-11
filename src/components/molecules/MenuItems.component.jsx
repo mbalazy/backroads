@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
-const StyledWrapper = styled.ul`
+import links from 'constans/links';
+import { v4 as uuidv4 } from 'uuid';
+
+const StyledList = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  width: 500px;
+  width: 400px;
 
   ${({ vertical }) =>
     vertical &&
@@ -15,37 +18,27 @@ const StyledWrapper = styled.ul`
       height: 100%;
       flex-direction: column;
       width: auto;
+      align-items: baseline;
     `}
 `;
 
 const StyledLink = styled(Link)`
-  color: black;
+  color: inherit;
   transition: color 0.2s;
-
   &:hover {
-    color: palevioletred;
+    color: var(--primaryColor);
   }
 `;
 
-const MenuItems = ({ vertical }) => {
+const MenuItems = ({ vertical, ...props }) => {
   return (
-    <StyledWrapper vertical={vertical}>
-      <li>
-        <StyledLink to="/">Home</StyledLink>
-      </li>
-      <li>
-        <StyledLink>Blog</StyledLink>
-      </li>
-      <li>
-        <StyledLink>Tours</StyledLink>
-      </li>
-      <li>
-        <StyledLink>Blogs</StyledLink>
-      </li>
-      <li>
-        <StyledLink>Contact</StyledLink>
-      </li>
-    </StyledWrapper>
+    <StyledList {...props} vertical={vertical}>
+      {links.map(({ path, text }) => (
+        <li key={uuidv4()}>
+          <StyledLink to={path}>{text}</StyledLink>
+        </li>
+      ))}
+    </StyledList>
   );
 };
 

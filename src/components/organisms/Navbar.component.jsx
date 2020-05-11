@@ -1,63 +1,87 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaAlignRight } from 'react-icons/fa';
 import Logo from 'images/logo.svg';
 import MenuItems from 'components/molecules/MenuItems.component';
+import MobileMenuItems from 'components/molecules/MobileMenuItems.component';
 import SocialItems from 'components/molecules/SocialItems.component';
+import { ButtonSimplest } from 'components/atoms/Buttons.component';
 
-const StyledWrapper = styled.nav`
-  padding: 0 10vw;
-  height: 70px;
+const StyledWrapperNavbar = styled.nav`
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 10vw;
+  height: 80px;
+  /* TODO move navbar height to global styles, in hero.component also*/
+
+  @media (max-width: 1050px) {
+    padding: 0 4vw;
+  }
+`;
+
+const StyledButton = styled(ButtonSimplest)`
+  @media (min-width: 769px) {
+    display: none;
+  }
+`;
+
+const StyledMobileMenuToogleIcon = styled(FaAlignRight)`
+  color: var(--primaryColor);
+  font-size: 1.5rem;
+`;
+
+const StyledMenuItems = styled(MenuItems)`
+  width: 380px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const StyledSocialItems = styled(SocialItems)`
+  // TODO merge same propeties from other
+  // components to parent social component (SocialItems)
+
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & > button > a {
+    color: var(--primaryColor);
+    font-size: 1.2rem;
+    transform: translateY(0px);
+    display: inline-block;
+    transition: transform 0.16s, color 0.22s 0.1s;
+
+    &:hover {
+      color: var(--mainBlack);
+      transform: translate(0, -3px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Navbar = () => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
-
-  const useWindowSize = () => {
-    const isClient = typeof window === 'object';
-
-    function getSize() {
-      return {
-        width: isClient ? window.innerWidth : undefined,
-        height: isClient ? window.innerHeight : undefined,
-      };
-    }
-
-    const [windowSize, setWindowSize] = useState(getSize);
-
-    useEffect(() => {
-      if (!isClient) {
-        return false;
-      }
-
-      function handleResize() {
-        setWindowSize(getSize());
-      }
-
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, [window.innerWidth, window.innerHeigh]);
-    return windowSize;
-  };
-
-  const size = useWindowSize();
+  const toogleNav = () => setMobileMenuVisible(!mobileMenuVisible);
 
   return (
     <>
-      <StyledWrapper>
-        <Logo />
-        {size.width > 900 ? (
-          <>
-            <MenuItems />
-            <SocialItems />
-          </>
-        ) : (
-          <FaAlignRight />
-        )}
-      </StyledWrapper>
+      <StyledWrapperNavbar>
+        <Logo alt="backroads logo" />
+        <StyledMenuItems />
+        <StyledSocialItems />
+        <StyledButton type="button" onClick={toogleNav}>
+          <StyledMobileMenuToogleIcon />
+        </StyledButton>
+      </StyledWrapperNavbar>
+      <MobileMenuItems isVisible={mobileMenuVisible} />
     </>
   );
 };
