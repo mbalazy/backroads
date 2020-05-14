@@ -23,7 +23,11 @@ const StyledMenuItems = styled(MenuItems)`
   @media (max-width: 600px) {
     width: auto;
     flex-direction: column;
-    margin: 2rem 0;
+    margin: 1rem 0;
+
+    & > * {
+      margin: 0.3rem 0;
+    }
   }
 `;
 
@@ -35,6 +39,7 @@ const StyledSocialItems = styled(SocialItems)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 2rem 0 1rem;
 
   & > button > a {
     color: var(--mainWhite);

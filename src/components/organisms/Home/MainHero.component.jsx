@@ -6,8 +6,11 @@ import Hero from 'templates/Hero.template';
 import { LinkMain } from 'components/atoms/Links.component';
 
 const StyledHero = styled(Hero)`
-  min-height: calc(100vh - 80px);
+  height: calc(100vh - 80px);
   padding: 24vh 14vw;
+  @media (max-width: 600px) {
+    padding: 8vh 3vw;
+  }
 `;
 
 const MainHero = () => {

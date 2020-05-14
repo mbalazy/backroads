@@ -4,17 +4,17 @@ import Navbar from 'components/organisms/Navbar.component';
 import './MainLayout.css';
 import styled from 'styled-components';
 
-const StyledMain = styled.main`
-  min-height: 100vh;
+const InnerWrapper = styled.div`
+  min-height: 90vh;
 `;
 
 const MainLayout = ({ children }) => {
   return (
-    <StyledMain>
+    <main>
       <Navbar />
-      {children}
+      <InnerWrapper>{children}</InnerWrapper>
       <Footer />
-    </StyledMain>
+    </main>
   );
 };
 
