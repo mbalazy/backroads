@@ -8,6 +8,10 @@ const StyledSectionWrapper = styled.section`
   flex-direction: column;
   align-items: center;
 
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
   & > div {
     width: 100%;
     padding: 3rem 0 1rem;

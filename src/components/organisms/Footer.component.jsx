@@ -8,7 +8,6 @@ import { ParagraphCopyright } from 'components/atoms/Typography.component';
 const StyledWrapperFooter = styled.footer`
   color: var(--mainWhite);
   background-color: var(--mainBlack);
-  height: 14rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,6 +19,12 @@ const StyledMenuItems = styled(MenuItems)`
   color: var(--mainWhite);
   width: 500px;
   text-transform: uppercase;
+
+  @media (max-width: 600px) {
+    width: auto;
+    flex-direction: column;
+    margin: 2rem 0;
+  }
 `;
 
 const StyledSocialItems = styled(SocialItems)`

@@ -12,7 +12,7 @@ const StyledWrapper = styled.div`
   ${({ isVisible }) =>
     isVisible &&
     css`
-      height: 30vh;
+      height: 200px;
       padding: 2rem 4rem;
     `};
 `;

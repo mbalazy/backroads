@@ -28,5 +28,8 @@ export const PrimaryColored = styled.span`
 export const HeadingMain = styled.h1`
   text-transform: uppercase;
   font-size: 4rem;
+  @media (max-width: 430px) {
+    font-size: 2.8rem;
+  }
   letter-spacing: 6px;
 `;

@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import backgroundImg from 'images/defaultBcg.jpeg';
 
 import Hero from 'templates/Hero.template';
-import { ButtonMain } from 'components/atoms/Buttons.component';
-import { Link } from 'gatsby';
+import { LinkMain } from 'components/atoms/Links.component';
 
 const StyledHero = styled(Hero)`
   min-height: calc(100vh - 80px);
@@ -20,9 +19,7 @@ const MainHero = () => {
       info="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum sapiente id sit ut
     soluta quam."
     >
-      <ButtonMain type="button">
-        <Link to="/tours">explore tours</Link>
-      </ButtonMain>
+      <LinkMain to="/tours">explore tours</LinkMain>
     </StyledHero>
   );
 };

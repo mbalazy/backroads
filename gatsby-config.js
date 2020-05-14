@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    title: 'BackRoads',
+    description: 'Explore awesome tours',
+    author: '@johndoe',
+  },
   plugins: [
     {
       resolve: 'gatsby-plugin-react-svg',
@@ -11,9 +16,17 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        // Add any options here
         displayName: true,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 };
