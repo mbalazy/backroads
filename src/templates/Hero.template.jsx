@@ -48,10 +48,8 @@ const getImages = graphql`
 
 const Hero = ({ imgName, home, children, title, info, className }) => {
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    });
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
   }, []);
 
   return (
