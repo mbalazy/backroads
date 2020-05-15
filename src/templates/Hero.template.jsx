@@ -1,14 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { HeadingMain, ParagraphCopyright } from 'components/atoms/Typography.component';
 import { StaticQuery, graphql } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import { LinkMain } from 'components/atoms/Links.component';
-
-window.addEventListener('resize', () => {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
 
 const StyledWrapperHero = styled.header`
   color: var(--mainWhite);
@@ -51,40 +46,49 @@ const getImages = graphql`
   }
 `;
 
-const Hero = ({ imgName, home, children, title, info, className }) => (
-  <StaticQuery
-    query={getImages}
-    render={(data) => {
-      const image = data.allImageSharp.edges.find(
-        (edge) => edge.node.fluid.originalName === imgName,
-      );
-      if (!image) {
-        return null;
-      }
+const Hero = ({ imgName, home, children, title, info, className }) => {
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
+  }, []);
 
-      const backgroundFluidImageStack = () =>
-        home
-          ? [
-              image.node.fluid,
-              `linear-gradient(to top, rgba(12, 12, 12, 0.32), var(--primaryColor))`,
-            ].reverse()
-          : [image.node.fluid];
+  return (
+    <StaticQuery
+      query={getImages}
+      render={(data) => {
+        const image = data.allImageSharp.edges.find(
+          (edge) => edge.node.fluid.originalName === imgName,
+        );
+        if (!image) {
+          return null;
+        }
 
-      return (
-        <StyledWrapperHero home={home} className={className}>
-          <StyledBackgroundImage home={home} fluid={backgroundFluidImageStack()}>
-            {home && (
-              <>
-                <HeadingMain>{title}</HeadingMain>
-                <ParagraphCopyright>{info}</ParagraphCopyright>
-                <LinkMain to="/tours">explore tours</LinkMain>
-                {children}
-              </>
-            )}
-          </StyledBackgroundImage>
-        </StyledWrapperHero>
-      );
-    }}
-  />
-);
+        const backgroundFluidImageStack = () =>
+          home
+            ? [
+                image.node.fluid,
+                `linear-gradient(to top, rgba(12, 12, 12, 0.32), var(--primaryColor))`,
+              ].reverse()
+            : [image.node.fluid];
+
+        return (
+          <StyledWrapperHero home={home} className={className}>
+            <StyledBackgroundImage home={home} fluid={backgroundFluidImageStack()}>
+              {home && (
+                <>
+                  <HeadingMain>{title}</HeadingMain>
+                  <ParagraphCopyright>{info}</ParagraphCopyright>
+                  <LinkMain to="/tours">explore tours</LinkMain>
+                  {children}
+                </>
+              )}
+            </StyledBackgroundImage>
+          </StyledWrapperHero>
+        );
+      }}
+    />
+  );
+};
 export default Hero;
