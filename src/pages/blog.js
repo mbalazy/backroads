@@ -1,14 +1,28 @@
 import React from 'react';
 import MainLayout from 'templates/MainLayout.component';
-import Images from 'components/examples/Images.component';
+import Hero from 'templates/Hero.template';
+import { graphql } from 'gatsby';
 
-const blog = () => {
+const blog = ({ data }) => {
+  const backgroungImage = data.backgroundImage.childImageSharp.fluid;
   return (
     <MainLayout>
-      <h3>hello from blog</h3>
-      <Images />
+      <Hero backgroundImage={backgroungImage} />
+      blog page
     </MainLayout>
   );
 };
+
+export const query = graphql`
+  query {
+    backgroundImage: file(relativePath: { eq: "blogBcg.jpeg" }) {
+      childImageSharp {
+        fluid(quality: 90) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+  }
+`;
 
 export default blog;

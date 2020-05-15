@@ -1,22 +1,28 @@
 import React from 'react';
 import MainLayout from 'templates/MainLayout.component';
 import styled from 'styled-components';
+import { HeadingMain } from 'components/atoms/Typography.component';
 
-import Hero from 'templates/Hero.template';
 import { LinkMain } from 'components/atoms/Links.component';
 
-const StyledHero = styled(Hero)`
+const StyledWrapper = styled.div`
   min-height: calc(100vh - 80px);
-  padding: 28vh 8vw;
   background-color: var(--primaryColor);
+  color: var(--mainWhite);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 `;
 
 const errorPage = () => {
   return (
     <MainLayout>
-      <StyledHero title="oops it's a dead end">
+      <StyledWrapper>
+        <HeadingMain>Oops, that is a death end</HeadingMain>
         <LinkMain>back to home page</LinkMain>
-      </StyledHero>
+      </StyledWrapper>
     </MainLayout>
   );
 };
