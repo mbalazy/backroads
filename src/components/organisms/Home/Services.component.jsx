@@ -10,10 +10,8 @@ const StyledServiceCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 
-  p {
-    text-align: center;
-  }
   @media (max-width: 600px) {
     margin: 1rem 2rem 0;
   }

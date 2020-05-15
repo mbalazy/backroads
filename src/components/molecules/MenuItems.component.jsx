@@ -10,7 +10,6 @@ const StyledList = styled.ul`
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  width: 400px;
 
   ${({ vertical }) =>
     vertical &&
@@ -20,11 +19,21 @@ const StyledList = styled.ul`
       width: auto;
       align-items: baseline;
     `}
+
+  & > li {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 const StyledLink = styled(Link)`
+  display: inline-block;
+  border: 1px solid var(--primaryColor);
   color: inherit;
   transition: color 0.2s;
+  padding: 0.4rem 2rem;
+  margin: 0.3rem 0;
+  width: 100%;
   &:hover {
     color: var(--primaryColor);
   }

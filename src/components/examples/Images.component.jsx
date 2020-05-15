@@ -58,12 +58,9 @@ const Images = () => {
       <article className="img">
         <h3>fluid img/svg</h3>
         <Img fluid={fluid.childImageSharp.fluid} />
-        <div className="fluid">
-          <Img fluid={fluid.childImageSharp.fluid} />
-        </div>
       </article>
       <StyledArticle>
-        <h3>fixed img/blur</h3>
+        <h3>Magdalena </h3>
         <Img fixed={fixed.childImageSharp.fixed} />
       </StyledArticle>
       <StyledArticle>

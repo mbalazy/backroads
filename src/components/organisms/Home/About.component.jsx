@@ -3,23 +3,18 @@ import styled from 'styled-components';
 import Section from 'templates/Section.templete';
 import { HeadingSubTitle } from 'components/atoms/Typography.component';
 import { LinkMain } from 'components/atoms/Links.component';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-import backgroundImg from 'images/defaultBcg.jpeg';
-
-const StyledImg = styled.img`
-  display: block;
-  margin: auto;
-  background-repeat: no-repeat;
-  background-size: center center;
-
-  width: 400px;
-  box-shadow: 6px 6px 10px -6px rgba(0, 0, 0, 0.75);
-
-  @media (max-width: 1100px) {
-    width: 400px;
-  }
-  @media (max-width: 500px) {
-    width: 80vw;
+const getImage = graphql`
+  query {
+    aboutUsImage: file(relativePath: { eq: "defaultBcg.jpeg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
   }
 `;
 
@@ -29,7 +24,7 @@ const StyledArticle = styled.article`
 
   @media (max-width: 1100px) {
     margin: 0 auto 3rem;
-    width: 80vw;
+    width: 90vw;
   }
 `;
 
@@ -38,12 +33,15 @@ const StyledDiv = styled.div`
     flex-direction: column;
   }
 `;
+
 const About = () => {
+  const { aboutUsImage } = useStaticQuery(getImage);
+
   return (
     <Section title="about us">
       <StyledDiv>
         <StyledArticle>
-          <StyledImg src={backgroundImg} alt="about us" />
+          <Img fluid={aboutUsImage.childImageSharp.fluid} alt="awesome landscape" />
         </StyledArticle>
         <StyledArticle>
           <HeadingSubTitle>explore the difference</HeadingSubTitle>

@@ -9,12 +9,12 @@ const StyledSectionWrapper = styled.section`
   align-items: center;
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 3rem 1rem 1rem;
   }
 
   & > div {
     width: 100%;
-    padding: 3rem 0 1rem;
+    padding: 2rem 0 1rem;
     display: flex;
     justify-content: center;
     align-items: center;

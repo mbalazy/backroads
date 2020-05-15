@@ -6,13 +6,13 @@ const StyledWrapper = styled.div`
   height: 0;
   padding: 0rem 4rem;
   overflow: hidden;
-  transition: height 0.2s, padding 0.2s;
+  transition: height 0.14s, padding 0.14s;
   text-align: right;
 
   ${({ isVisible }) =>
     isVisible &&
     css`
-      height: 200px;
+      height: 230px;
       padding: 2rem 4rem;
     `};
 `;

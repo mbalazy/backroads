@@ -7,6 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "develop host": "gatsby develop --host 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -16,6 +17,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.21.0",
+    "gatsby-background-image": "^1.1.1",
     "gatsby-image": "^2.4.3",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sass": "^2.3.0",
@@ -26,11 +28,13 @@
     "netlify-cli": "^2.48.0",
     "node-sass": "^4.14.1",
     "react": "^16.12.0",
+    "react-div-100vh": "^0.3.8",
     "react-dom": "^16.12.0",
     "styled-components": "^5.1.0",
     "uuid": "^8.0.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.26.7",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",

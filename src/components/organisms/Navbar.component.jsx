@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaAlignRight } from 'react-icons/fa';
 import Logo from 'images/logo.svg';
+import { Link } from 'gatsby';
 import MenuItems from 'components/molecules/MenuItems.component';
 import MobileMenuItems from 'components/molecules/MobileMenuItems.component';
 import SocialItems from 'components/molecules/SocialItems.component';
@@ -22,6 +23,7 @@ const StyledWrapperNavbar = styled.nav`
 `;
 
 const StyledButton = styled(ButtonSimplest)`
+  padding: 1rem 1rem 1rem 2.4rem;
   @media (min-width: 769px) {
     display: none;
   }
@@ -74,7 +76,9 @@ const Navbar = () => {
   return (
     <>
       <StyledWrapperNavbar>
-        <Logo alt="backroads logo" />
+        <Link to="/">
+          <Logo alt="backroads logo" />
+        </Link>
         <StyledMenuItems />
         <StyledSocialItems />
         <StyledButton type="button" onClick={toogleNav}>
