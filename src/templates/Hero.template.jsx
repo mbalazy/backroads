@@ -35,8 +35,10 @@ const StyledBackgroundImage = styled(BackgroundImage)`
 
 const Hero = ({ backgroundImage, home, children, title, info, className }) => {
   useEffect(() => {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    if (home) {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
   }, []);
 
   return (
