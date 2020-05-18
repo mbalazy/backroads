@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
+
 import styled, { css } from 'styled-components';
 
 import links from 'constans/links';
@@ -26,9 +27,8 @@ const StyledList = styled.ul`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(AniLink)`
   display: inline-block;
-  border: 1px solid var(--primaryColor);
   color: inherit;
   transition: color 0.2s;
   padding: 0.4rem 2rem;
@@ -37,14 +37,22 @@ const StyledLink = styled(Link)`
   &:hover {
     color: var(--primaryColor);
   }
+
+  ${({ border }) =>
+    border &&
+    css`
+      border: 1px solid var(--primaryColor);
+    `}
 `;
 
-const MenuItems = ({ vertical, ...props }) => {
+const MenuItems = ({ vertical, border, ...props }) => {
   return (
     <StyledList {...props} vertical={vertical}>
       {links.map(({ path, text }) => (
         <li key={uuidv4()}>
-          <StyledLink to={path}>{text}</StyledLink>
+          <StyledLink fade duration={0.5} border={border} to={path}>
+            {text}
+          </StyledLink>
         </li>
       ))}
     </StyledList>

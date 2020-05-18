@@ -9,7 +9,7 @@ const MainHero = () => {
         backgroundImage: file(relativePath: { eq: "defaultBcg.jpeg" }) {
           childImageSharp {
             fluid(maxWidth: 2000, quality: 90) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }

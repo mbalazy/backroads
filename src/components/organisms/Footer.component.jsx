@@ -13,6 +13,7 @@ const StyledWrapperFooter = styled.footer`
   justify-content: space-between;
   align-items: center;
   padding: 2.4rem 0;
+  text-align: center;
 `;
 
 const StyledMenuItems = styled(MenuItems)`

@@ -20,7 +20,7 @@ const StyledWrapper = styled.div`
 const MobileMenuItems = ({ isVisible }) => {
   return (
     <StyledWrapper isVisible={isVisible}>
-      <MenuItems vertical />
+      <MenuItems vertical border />
     </StyledWrapper>
   );
 };
