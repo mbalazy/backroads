@@ -50,7 +50,7 @@ const MenuItems = ({ vertical, border, ...props }) => {
     <StyledList {...props} vertical={vertical}>
       {links.map(({ path, text }) => (
         <li key={uuidv4()}>
-          <StyledLink fade duration={0.5} border={border} to={path}>
+          <StyledLink fade duration={0.4} border={border} to={path}>
             {text}
           </StyledLink>
         </li>

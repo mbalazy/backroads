@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Link } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const LinkMainContainer = styled(AniLink)`
@@ -33,8 +32,16 @@ const LinkMainContainer = styled(AniLink)`
 
 export const LinkMain = ({ children, ...props }) => {
   return (
-    <LinkMainContainer fade duration={0.5} {...props}>
+    <LinkMainContainer fade duration={0.4} {...props}>
       {children}
     </LinkMainContainer>
+  );
+};
+
+export const LinkSimplest = ({ children, ...props }) => {
+  return (
+    <AniLink fade duration={0.4} {...props}>
+      {children}
+    </AniLink>
   );
 };

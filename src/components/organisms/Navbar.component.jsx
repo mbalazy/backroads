@@ -7,6 +7,7 @@ import MenuItems from 'components/molecules/MenuItems.component';
 import MobileMenuItems from 'components/molecules/MobileMenuItems.component';
 import SocialItems from 'components/molecules/SocialItems.component';
 import { ButtonSimplest } from 'components/atoms/Buttons.component';
+import { LinkSimplest } from 'components/atoms/Links.component';
 
 const StyledWrapperNavbar = styled.nav`
   display: flex;
@@ -76,9 +77,9 @@ const Navbar = () => {
   return (
     <>
       <StyledWrapperNavbar>
-        <Link to="/">
+        <LinkSimplest to="/">
           <Logo alt="backroads logo" />
-        </Link>
+        </LinkSimplest>
         <StyledMenuItems />
         <StyledSocialItems />
         <StyledButton type="button" onClick={toogleNav}>
