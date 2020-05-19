@@ -64,6 +64,7 @@ const ContactForm = () => {
             url: 'https://formspree.io/mknqozej',
             data: values,
           })
+            // eslint-disable-next-line no-unused-vars
             .then((response) => {
               actions.setSubmitting(false);
               actions.resetForm();

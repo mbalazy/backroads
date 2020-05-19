@@ -21,7 +21,9 @@ const errorPage = () => {
     <MainLayout>
       <StyledWrapper>
         <HeadingMain>Oops, that is a death end</HeadingMain>
-        <LinkMain to="/">back to home page</LinkMain>
+        <LinkMain to="/">
+          <>back to home page</>
+        </LinkMain>
       </StyledWrapper>
     </MainLayout>
   );

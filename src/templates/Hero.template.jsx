@@ -48,7 +48,9 @@ const Hero = ({ backgroundImage, home, children, title, info, className }) => {
           <>
             <HeadingMain>{title}</HeadingMain>
             <ParagraphCopyright>{info}</ParagraphCopyright>
-            <LinkMain to="/tours">explore tours</LinkMain>
+            <LinkMain to="/tours">
+              <>explore tours</>
+            </LinkMain>
             {children}
           </>
         )}

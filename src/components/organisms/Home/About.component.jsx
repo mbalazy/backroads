@@ -54,7 +54,7 @@ const About = () => {
             Officiis quasi eveniet illo consequatur dolore nostrum ullam esse.
           </p>
           <LinkMain to="/" inverted="true">
-            Read more
+            <>Read more</>
           </LinkMain>
         </StyledArticle>
       </StyledDiv>
