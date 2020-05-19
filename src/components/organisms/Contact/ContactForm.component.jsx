@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import Section from 'templates/Section.templete';
 import { Formik } from 'formik';
 import styled from 'styled-components';
@@ -26,7 +27,22 @@ const StyledInnerFormWrapper = styled.div`
   }
 `;
 
+const SuccesMessage = styled.h3`
+  font-size: 1rem;
+  text-transform: uppercase;
+  border: 2px solid var(--primaryColor);
+  padding: 1.2rem 3rem;
+  display: inline-block;
+  color: var(--primaryColor);
+  text-align: center;
+  background-color: var(--mainWhite);
+`;
+
 const ContactForm = () => {
+  const [serverState, setServerState] = useState();
+  const handleServerResponse = (ok, msg) => {
+    setServerState({ ok, msg });
+  };
   return (
     <Section title="contact us" backgroundGrey>
       <Formik
@@ -42,11 +58,21 @@ const ContactForm = () => {
           }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+        onSubmit={(values, actions) => {
+          axios({
+            method: 'POST',
+            url: 'https://formspree.io/mknqozej',
+            data: values,
+          })
+            .then((response) => {
+              actions.setSubmitting(false);
+              actions.resetForm();
+              handleServerResponse(true, 'Thanks!');
+            })
+            .catch((error) => {
+              actions.setSubmitting(false);
+              handleServerResponse(false, error.response.data.error);
+            });
         }}
       >
         {({ values, errors, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
@@ -75,8 +101,7 @@ const ContactForm = () => {
                   value={values.email}
                 />
               </label>
-
-              {errors.email && errors.email}
+              {errors.email}
 
               <label htmlFor="message">
                 Message
@@ -89,11 +114,15 @@ const ContactForm = () => {
                   onBlur={handleBlur}
                 />
               </label>
-              {errors.message && errors.message}
+              {errors.message}
 
-              <ButtonMain inverted type="submit" disabled={isSubmitting}>
-                Submit message
-              </ButtonMain>
+              {serverState ? (
+                <SuccesMessage>{serverState.msg}</SuccesMessage>
+              ) : (
+                <ButtonMain inverted type="submit" disabled={isSubmitting}>
+                  <>Submit</>
+                </ButtonMain>
+              )}
             </StyledInnerFormWrapper>
           </form>
         )}
