@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaAlignRight } from 'react-icons/fa';
 import Logo from 'images/logo.svg';
-import { Link } from 'gatsby';
 import MenuItems from 'components/molecules/MenuItems.component';
 import MobileMenuItems from 'components/molecules/MobileMenuItems.component';
 import SocialItems from 'components/molecules/SocialItems.component';

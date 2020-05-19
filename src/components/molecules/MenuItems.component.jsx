@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
@@ -57,6 +58,16 @@ const MenuItems = ({ vertical, border, ...props }) => {
       ))}
     </StyledList>
   );
+};
+
+MenuItems.propTypes = {
+  border: PropTypes.bool,
+  vertical: PropTypes.bool,
+};
+
+MenuItems.defaultProps = {
+  border: false,
+  vertical: false,
 };
 
 export default MenuItems;

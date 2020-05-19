@@ -11,6 +11,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-props-no-spreading': 'off',
   },
   settings: {
     'import/resolver': {

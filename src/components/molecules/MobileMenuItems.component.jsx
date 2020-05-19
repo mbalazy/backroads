@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import MenuItems from 'components/molecules/MenuItems.component';
 import styled, { css } from 'styled-components';
@@ -23,6 +24,10 @@ const MobileMenuItems = ({ isVisible }) => {
       <MenuItems vertical border />
     </StyledWrapper>
   );
+};
+
+MobileMenuItems.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
 };
 
 export default MobileMenuItems;

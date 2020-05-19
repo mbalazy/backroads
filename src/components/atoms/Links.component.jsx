@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
@@ -38,10 +39,18 @@ export const LinkMain = ({ children, ...props }) => {
   );
 };
 
+LinkMain.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
 export const LinkSimplest = ({ children, ...props }) => {
   return (
     <AniLink fade duration={0.4} {...props}>
       {children}
     </AniLink>
   );
+};
+
+LinkSimplest.propTypes = {
+  children: PropTypes.element.isRequired,
 };
