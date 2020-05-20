@@ -1,15 +1,14 @@
 import React from 'react';
-
 import MainLayout from 'templates/MainLayout.component';
 import Hero from 'templates/Hero.template';
 import { graphql } from 'gatsby';
+import ToursList from 'components/organisms/Tours/ToursList.component';
 
-const tours = ({ data }) => {
-  const backgroungImage = data.backgroundImage.childImageSharp.fluid;
+const tours = ({ data: { allTours, backgroundImage } }) => {
   return (
     <MainLayout>
-      <Hero backgroundImage={backgroungImage} />
-      tours page
+      <Hero backgroundImage={backgroundImage.childImageSharp.fluid} />
+      <ToursList listOfTours={allTours.edges} />
     </MainLayout>
   );
 };
@@ -19,6 +18,24 @@ export const query = graphql`
       childImageSharp {
         fluid(quality: 90) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+
+    allTours: allContentfulTour {
+      edges {
+        node {
+          name
+          price
+          country
+          days
+          slug
+          contentful_id
+          images {
+            fluid {
+              tracedSVG
+            }
+          }
         }
       }
     }

@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 export const ParagraphCopyright = styled.p`
   letter-spacing: var(--mainSpacing);
   font-size: 1.2rem;
-  margin: 2rem 1rem;
 `;
 
 export const HeadingTitle = styled.h2`
