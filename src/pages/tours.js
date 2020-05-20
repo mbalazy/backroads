@@ -33,7 +33,7 @@ export const query = graphql`
           contentful_id
           images {
             fluid {
-              tracedSVG
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }

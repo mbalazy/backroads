@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import { ParagraphCopyright } from 'components/atoms/Typography.component';
 
 const StyledWrapperTourThumbnail = styled.article`
-  height: 350px;
+  height: 330px;
   display: block;
   display: flex;
   flex-direction: column;
@@ -14,17 +14,15 @@ const StyledWrapperTourThumbnail = styled.article`
 
 const StyledImg = styled.div`
   height: 70%;
-  border: 1px solid red;
 `;
 
 const StyledInfo = styled.div`
   background-color: var(--mainWhite);
   height: 30%;
-  padding: 0.6rem 1rem;
+  padding: 0.6rem 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   p {
     display: block;
   }
@@ -48,18 +46,19 @@ const StyledPriceAndDays = styled.div`
 `;
 
 const TourThumbnail = ({ name, price, country, days, slug, contentful_id, images }) => {
-  console.log(images);
   return (
     <StyledWrapperTourThumbnail>
       <StyledImg>
-        <Img fluid={images[0].fluid} />
+        <Img fadeIn objectFit="cover" objectPosition="50% 50%" fluid={images[0].fluid} />
       </StyledImg>
       <StyledInfo>
-        <ParagraphCopyright>{name}</ParagraphCopyright>
+        <ParagraphCopyright as="h5">{name}</ParagraphCopyright>
         <StyledDetails>
           <StyledCountry>{country}</StyledCountry>
           <StyledPriceAndDays>
-            <h6>{days} days</h6>
+            <h6>
+              {days} {days === 1 ? 'day' : 'days'}
+            </h6>
             <h6>FROM {price}$</h6>
           </StyledPriceAndDays>
         </StyledDetails>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TourThumbnail from 'components/organisms/Tours/TourThumbnail.component';
+import { v4 as uuidv4 } from 'uuid';
 
 const StyledWrapperTourList = styled.div`
   width: 80vw;
@@ -23,7 +24,7 @@ const ToursList = ({ listOfTours }) => {
   return (
     <StyledWrapperTourList>
       {listOfTours.map(({ node: { ...props } }) => (
-        <TourThumbnail {...props} />
+        <TourThumbnail key={uuidv4()} {...props} />
       ))}
     </StyledWrapperTourList>
   );

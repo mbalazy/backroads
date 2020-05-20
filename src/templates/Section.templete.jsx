@@ -12,6 +12,10 @@ const StyledSectionWrapper = styled.section`
     padding: 3rem 1rem 1rem;
   }
 
+  ${HeadingTitle} {
+    text-align: center;
+  }
+
   & > div {
     width: 100%;
     padding: 2rem 0 1rem;

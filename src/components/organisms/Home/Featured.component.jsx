@@ -14,7 +14,7 @@ const getFeaturedImages = graphql`
           days
           images {
             fluid {
-              base64
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }
@@ -31,6 +31,7 @@ const Featured = () => {
       <div>
         <ToursList listOfTours={featuredTours.edges} />
       </div>
+      {/* TODO: add link to tours page */}
     </Section>
   );
 };
