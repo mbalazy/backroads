@@ -2,6 +2,7 @@ import React from 'react';
 import Section from 'templates/Section.templete';
 import { useStaticQuery, graphql } from 'gatsby';
 import ToursList from 'components/organisms/Tours/ToursList.component';
+import { LinkMain } from 'components/atoms/Links.component';
 
 const getFeaturedImages = graphql`
   query FeaturedTours {
@@ -31,7 +32,9 @@ const Featured = () => {
       <div>
         <ToursList listOfTours={featuredTours.edges} />
       </div>
-      {/* TODO: add link to tours page */}
+      <LinkMain inverted to="/tours">
+        all tours
+      </LinkMain>
     </Section>
   );
 };

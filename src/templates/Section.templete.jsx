@@ -18,7 +18,7 @@ const StyledSectionWrapper = styled.section`
 
   & > div {
     width: 100%;
-    padding: 2rem 0 1rem;
+    padding: 1rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
