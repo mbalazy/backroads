@@ -68,8 +68,7 @@ const StyledImg = styled.div`
 
 const StyledInfo = styled.div`
   background-color: var(--mainWhite);
-  height: 30%;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
