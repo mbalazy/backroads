@@ -13,6 +13,7 @@ const getFeaturedImages = graphql`
           price
           country
           days
+          slug
           images {
             fluid {
               ...GatsbyContentfulFluid_withWebp
