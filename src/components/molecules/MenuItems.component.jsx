@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import { Link } from 'gatsby';
 
 import styled, { css } from 'styled-components';
 
@@ -28,7 +28,7 @@ const StyledList = styled.ul`
   }
 `;
 
-const StyledLink = styled(AniLink)`
+const StyledLink = styled(Link)`
   display: inline-block;
   color: inherit;
   transition: color 0.2s;

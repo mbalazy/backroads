@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled, { css } from 'styled-components';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import { Link } from 'gatsby';
 
-const LinkMainContainer = styled(AniLink)`
+const LinkMainContainer = styled(Link)`
   font-size: 1rem;
   text-transform: uppercase;
   background: transparent;
@@ -32,23 +32,15 @@ const LinkMainContainer = styled(AniLink)`
 `;
 
 export const LinkMain = ({ children, ...props }) => {
-  return (
-    <LinkMainContainer fade duration={0.4} {...props}>
-      {children}
-    </LinkMainContainer>
-  );
+  return <LinkMainContainer {...props}>{children}</LinkMainContainer>;
 };
 
 LinkMain.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
 };
 
 export const LinkSimplest = ({ children, ...props }) => {
-  return (
-    <AniLink fade duration={0.4} {...props}>
-      {children}
-    </AniLink>
-  );
+  return <Link {...props}>{children}</Link>;
 };
 
 LinkSimplest.propTypes = {
