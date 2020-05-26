@@ -21,7 +21,7 @@ const MainHero = () => {
     <Hero
       home
       backgroundImage={backgroundImage.childImageSharp.fluid}
-      title="continue exploring"
+      title="continue discovery"
       info="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum sapiente id sit ut
     soluta quam."
     />
