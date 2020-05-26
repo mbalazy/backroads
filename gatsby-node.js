@@ -1,5 +1,6 @@
 const path = require('path');
 
+// eslint-disable-next-line no-unused-vars
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
     resolve: {
@@ -8,6 +9,7 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
   });
 };
 
+// eslint-disable-next-line func-names
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
     query {
