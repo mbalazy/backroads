@@ -2,13 +2,14 @@ import React from 'react';
 import MainLayout from 'templates/MainLayout.component';
 import Hero from 'templates/Hero.template';
 import { graphql } from 'gatsby';
+import BlogList from 'components/organisms/Blog/BlogList.component';
 
-const blog = ({ data }) => {
+const blog = ({ data, data: { posts } }) => {
   const backgroungImage = data.backgroundImage.childImageSharp.fluid;
   return (
     <MainLayout>
       <Hero backgroundImage={backgroungImage} />
-      blog page
+      <BlogList listOfBlogs={posts.edges} />
     </MainLayout>
   );
 };
@@ -19,6 +20,22 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 1000, quality: 90) {
           ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+
+    posts: allContentfulPost {
+      edges {
+        node {
+          title
+          slug
+          id: contentful_id
+          published(formatString: "D.M.Yr")
+          image {
+            fluid {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
         }
       }
     }

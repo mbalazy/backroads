@@ -7,7 +7,6 @@ import { FaMap } from 'react-icons/fa';
 
 const StyledWrapperTourThumbnail = styled.article`
   height: 350px;
-  display: block;
   display: flex;
   flex-direction: column;
   box-shadow: var(--lightShadow);
@@ -101,7 +100,7 @@ const StyledPriceAndDays = styled.div`
   }
 `;
 
-const TourThumbnail = ({ name, price, country, days, slug, contentful_id, images }) => {
+const TourThumbnail = ({ name, price, country, days, slug, images }) => {
   return (
     <StyledWrapperTourThumbnail>
       <StyledImg>
