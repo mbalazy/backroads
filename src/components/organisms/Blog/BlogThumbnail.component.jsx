@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import { ParagraphCopyright } from 'components/atoms/Typography.component';
 import { LinkMain } from 'components/atoms/Links.component';
 
 const StyledWrapperBlogThumbnail = styled.article`
