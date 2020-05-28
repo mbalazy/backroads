@@ -24,7 +24,7 @@ export const query = graphql`
       }
     }
 
-    posts: allContentfulPost {
+    posts: allContentfulPost(sort: { fields: published, order: DESC }) {
       edges {
         node {
           title

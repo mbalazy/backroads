@@ -35,7 +35,7 @@ const StyledImg = styled.div`
   height: 70%;
 
   & > div {
-    height: 100%;
+    max-height: 100%;
   }
 
   &::before {
@@ -66,9 +66,11 @@ const StyledImg = styled.div`
 
 const StyledInfo = styled.div`
   padding: 0.6rem;
+  overflow: hidden;
+  z-index: 0;
 `;
 
-const StyledPublished = styled.p`
+const StyledPublished = styled.h6`
   font-size: 0.8rem;
   display: block;
   position: absolute;
@@ -81,16 +83,16 @@ const StyledPublished = styled.p`
   border-bottom-right-radius: 15px;
 `;
 
-const BlogThumbnail = ({ id, image, published, slug, title }) => {
+const BlogThumbnail = ({ image, published, slug, title }) => {
   return (
     <StyledWrapperBlogThumbnail>
       <StyledImg>
-        <Img fadeIn objectFit="cover" objectPosition="50% 50%" fluid={image.fluid} />
+        <Img fadeIn objectFit="cover" fluid={image.fluid} />
         <StyledLink to={`/blog/${slug}`}>read more</StyledLink>
         <StyledPublished>{published}</StyledPublished>
       </StyledImg>
       <StyledInfo>
-        <h1>{title}</h1>
+        <h3>{title}</h3>
       </StyledInfo>
     </StyledWrapperBlogThumbnail>
   );
