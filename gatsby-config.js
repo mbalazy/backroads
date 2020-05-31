@@ -7,6 +7,8 @@ module.exports = {
     title: 'BackRoads',
     description: 'Explore awesome tours',
     author: '@johndoe',
+    image: 'defaultBcg.jpeg',
+    siteUrl: 'https://backroads-gatsbybuild.netlify.app',
   },
   plugins: [
     {
@@ -41,8 +43,18 @@ module.exports = {
             : 'cdn.contentful.com' || 'cdn.contentful.com',
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://backroads-gatsbybuild.netlify.app',
+        sitemap: 'https://backroads-gatsbybuild.netlify.app/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-transition-link`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
   ],
 };

@@ -3,10 +3,12 @@ import MainLayout from 'templates/MainLayout.component';
 import Hero from 'templates/Hero.template';
 import { graphql } from 'gatsby';
 import ToursList from 'components/organisms/Tours/ToursList.component';
+import SEO from 'components/atoms/SEO';
 
 const tours = ({ data: { allTours, backgroundImage } }) => {
   return (
     <MainLayout>
+      <SEO title="Tours" description="Explore our all beautifull tours" />
       <Hero backgroundImage={backgroundImage.childImageSharp.fluid} />
       <ToursList listOfTours={allTours.edges} />
     </MainLayout>

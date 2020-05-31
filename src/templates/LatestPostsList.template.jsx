@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 import BlogList from 'components/organisms/Blog/BlogList.component';
 import { HeadingTitle } from 'components/atoms/Typography.component';
 import Pagination from 'components/organisms/Pagination.component';
+import SEO from 'components/atoms/SEO';
 
 const StyledHeading = styled(HeadingTitle)`
   text-align: center;
@@ -14,6 +15,7 @@ const StyledHeading = styled(HeadingTitle)`
 const LatestPostList = ({ data, pageContext }) => {
   return (
     <MainLayout>
+      <SEO title="Latest Posts" description="Discovery our latests posts" />
       <StyledHeading>latest posts</StyledHeading>
       <BlogList listOfBlogs={data.posts.edges} />
       <Pagination pageContext={pageContext} slug="posts" />

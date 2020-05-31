@@ -2,8 +2,8 @@ import React from 'react';
 import MainLayout from 'templates/MainLayout.component';
 import styled from 'styled-components';
 import { HeadingMain } from 'components/atoms/Typography.component';
-
 import { LinkMain } from 'components/atoms/Links.component';
+import SEO from 'components/atoms/SEO';
 
 const StyledWrapper = styled.div`
   min-height: calc(100vh - 80px);
@@ -19,6 +19,7 @@ const StyledWrapper = styled.div`
 const errorPage = () => {
   return (
     <MainLayout>
+      <SEO title="Error" description="this page does not exists" />
       <StyledWrapper>
         <HeadingMain>Oops, that is a death end</HeadingMain>
         <LinkMain to="/">

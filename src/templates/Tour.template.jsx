@@ -9,6 +9,7 @@ import Hero from 'templates/Hero.template';
 import { HeadingSubTitle, PrimaryColored } from 'components/atoms/Typography.component';
 import Day from 'components/organisms/Tours/Day.component';
 import { FaMoneyBillWave, FaMap } from 'react-icons/fa';
+import SEO from 'components/atoms/SEO';
 
 const StyledDetails = styled.div`
   margin: 2rem 3rem;
@@ -64,6 +65,7 @@ const Tour = ({ data }) => {
 
   return (
     <MainLayout>
+      <SEO title={name} description="Explore our tours" />
       <Hero backgroundImage={mainImage.fluid} />
       <GridLayout>
         {restImages.map(({ fluid }) => {

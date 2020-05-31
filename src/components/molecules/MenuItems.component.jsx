@@ -54,8 +54,8 @@ const StyledLink = styled(Link)`
 const MenuItems = ({ vertical, border, ...props }) => {
   return (
     <StyledList {...props} vertical={vertical}>
-      {links.map(({ path, text }, i) => (
-        <li key={`${path}-${text}-${i + 1}`}>
+      {links.map(({ path, text }) => (
+        <li key={path}>
           <StyledLink border={border} to={path}>
             {text}
           </StyledLink>

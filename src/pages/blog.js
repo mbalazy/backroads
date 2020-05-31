@@ -3,11 +3,13 @@ import MainLayout from 'templates/MainLayout.component';
 import Hero from 'templates/Hero.template';
 import { graphql } from 'gatsby';
 import BlogList from 'components/organisms/Blog/BlogList.component';
+import SEO from 'components/atoms/SEO';
 
 const blog = ({ data, data: { posts } }) => {
   const backgroungImage = data.backgroundImage.childImageSharp.fluid;
   return (
     <MainLayout>
+      <SEO title="Blog" description="blog posts" />
       <Hero backgroundImage={backgroungImage} />
       <BlogList listOfBlogs={posts.edges} />
     </MainLayout>

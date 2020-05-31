@@ -4,7 +4,7 @@ import { LinkMain } from 'components/atoms/Links.component';
 import { Link } from 'gatsby';
 
 const StyledPagination = styled.div`
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
 `;
 
@@ -16,10 +16,18 @@ const StyledNavButtons = styled.div`
 
 const StyledPrevButton = styled(LinkMain)`
   margin: 0 auto 0 1rem;
+  @media (max-width: 500px) {
+    margin: 0 auto 0 0.4rem;
+    padding: 0.5rem;
+  }
 `;
 
 const StyledNextButton = styled(LinkMain)`
   margin: 0 1rem 0 auto;
+  @media (max-width: 500px) {
+    padding: 0.5rem 1rem;
+    margin: 0 0.4rem 0 auto;
+  }
 `;
 
 const StyledNumber = styled.span`

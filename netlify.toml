@@ -15,7 +15,7 @@
   ## https://github.com/netlify/netlify-dev-plugin#project-detection
   [dev] 
    command = "npm start" # Command to start your dev server
-   port = 8000 # Port that the dev server will be listening on
+   port = 8888 # Port that the dev server will be listening on
    publish = "public" # Folder with the static content for _redirect file
   
   ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/ 

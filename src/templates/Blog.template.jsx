@@ -5,6 +5,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { LinkMain } from 'components/atoms/Links.component';
+import SEO from 'components/atoms/SEO';
 
 const StyledWrapperBlogTemplate = styled.section`
   margin: 0 auto;
@@ -48,6 +49,7 @@ const Blog = ({ data }) => {
   };
   return (
     <MainLayout>
+      <SEO title={title} description="Blog post" />
       <StyledWrapperBlogTemplate>
         <StyledImage>
           <Img fluid={image.fluid} />
