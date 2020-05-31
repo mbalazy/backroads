@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Section from 'templates/Section.templete';
 import { HeadingSubTitle } from 'components/atoms/Typography.component';
-import { v4 as uuidv4 } from 'uuid';
 import servicesData from 'constans/services';
 
 const StyledServiceCard = styled.div`
@@ -35,7 +34,7 @@ const Services = () => {
     <Section backgroundGrey title="our services">
       <StyledDiv>
         {servicesData.map(({ icon, title, text }) => (
-          <StyledServiceCard key={uuidv4()}>
+          <StyledServiceCard key={title}>
             <StyledIconContainer>{icon}</StyledIconContainer>
             <HeadingSubTitle small>{title}</HeadingSubTitle>
             <p>{text}</p>

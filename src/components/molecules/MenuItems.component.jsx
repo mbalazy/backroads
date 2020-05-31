@@ -5,7 +5,6 @@ import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
 import links from 'constans/links';
-import { v4 as uuidv4 } from 'uuid';
 
 const StyledList = styled.ul`
   display: flex;
@@ -35,6 +34,7 @@ const StyledLink = styled(Link)`
   padding: 0.4rem 1rem;
   margin: 0.3rem;
   white-space: nowrap;
+  width: 100%;
 
   @media (max-width: 900px) {
     padding: 0.4rem 0.5rem;
@@ -54,8 +54,8 @@ const StyledLink = styled(Link)`
 const MenuItems = ({ vertical, border, ...props }) => {
   return (
     <StyledList {...props} vertical={vertical}>
-      {links.map(({ path, text }) => (
-        <li key={uuidv4()}>
+      {links.map(({ path, text }, i) => (
+        <li key={`${path}-${text}-${i + 1}`}>
           <StyledLink border={border} to={path}>
             {text}
           </StyledLink>

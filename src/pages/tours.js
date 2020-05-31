@@ -30,6 +30,7 @@ export const query = graphql`
           country
           days
           slug
+          id
           images {
             fluid {
               ...GatsbyContentfulFluid_withWebp

@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { v4 as uuidv4 } from 'uuid';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import GridLayout from 'templates/GridLayout.template';
@@ -67,9 +66,9 @@ const Tour = ({ data }) => {
     <MainLayout>
       <Hero backgroundImage={mainImage.fluid} />
       <GridLayout>
-        {restImages.map(({ fluid }) => (
-          <Img key={uuidv4()} fluid={fluid} alt="single tour" />
-        ))}
+        {restImages.map(({ fluid }) => {
+          return <Img key={fluid.src} fluid={fluid} alt="single tour" />;
+        })}
       </GridLayout>
       <StyledDetails>
         <StyledTitle>{name}</StyledTitle>
@@ -91,7 +90,7 @@ const Tour = ({ data }) => {
         <StyledSchedule>
           <HeadingSubTitle small>Daily Schedule</HeadingSubTitle>
           {journey.map(({ day, info }) => (
-            <Day key={uuidv4()} day={day} info={info} />
+            <Day key={day} day={day} info={info} />
           ))}
         </StyledSchedule>
         <StyledLink inverted to="/tours">
