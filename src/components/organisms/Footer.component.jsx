@@ -18,11 +18,9 @@ const StyledWrapperFooter = styled.footer`
 
 const StyledMenuItems = styled(MenuItems)`
   color: var(--mainWhite);
-  width: 500px;
   text-transform: uppercase;
 
   @media (max-width: 600px) {
-    width: auto;
     flex-direction: column;
     margin: 1rem 0;
 

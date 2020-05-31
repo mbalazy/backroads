@@ -52,4 +52,32 @@ exports.createPages = async function ({ actions, graphql }) {
       },
     });
   });
+
+  // Create blog-list pages
+  const posts = data.posts.edges;
+  const postsPerPage = 2;
+  const numPages = Math.ceil(posts.length / postsPerPage);
+  Array.from({ length: numPages }).forEach((_, i) => {
+    actions.createPage({
+      path: i === 0 ? `/posts` : `/posts/${i + 1}`,
+      component: path.resolve('src/templates/LatestPostsList.template.jsx'),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    });
+  });
+
+  // exports.onCreateNode = ({ node, actions: { createNodeField }, getNode }) => {
+  //   if (node.internal.type === `SitePage`) {
+  //     const value = createFilePath({ node, getNode });
+  //     createNodeField({
+  //       name: `slug`,
+  //       node,
+  //       value,
+  //     });
+  //   }
+  // };
 };

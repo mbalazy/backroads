@@ -31,6 +31,21 @@ const Blog = ({ data }) => {
     image,
     text: { json },
   } = data.contentfulPost;
+
+  const options = {
+    renderNode: {
+      'embedded-asset-block': (node) => {
+        return (
+          node.data.target.fields && (
+            <div>
+              <img width="400px" alt="post" src={node.data.target.fields.file['en-US'].url} />
+            </div>
+          )
+        );
+      },
+      // 'embedded-entry-block': (node) => {},
+    },
+  };
   return (
     <MainLayout>
       <StyledWrapperBlogTemplate>
@@ -39,7 +54,7 @@ const Blog = ({ data }) => {
         </StyledImage>
         <h2>{title}</h2>
         <p>Published at: {published}</p>
-        {documentToReactComponents(json)}
+        {documentToReactComponents(json, options)}
         <StyledLink inverted to="/blog">
           Back to all posts
         </StyledLink>

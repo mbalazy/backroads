@@ -32,9 +32,14 @@ const StyledLink = styled(Link)`
   display: inline-block;
   color: inherit;
   transition: color 0.2s;
-  padding: 0.4rem 2rem;
-  margin: 0.3rem 0;
-  width: 100%;
+  padding: 0.4rem 1rem;
+  margin: 0.3rem;
+  white-space: nowrap;
+
+  @media (max-width: 900px) {
+    padding: 0.4rem 0.5rem;
+    flex-direction: column;
+  }
   &:hover {
     color: var(--primaryColor);
   }
@@ -51,7 +56,7 @@ const MenuItems = ({ vertical, border, ...props }) => {
     <StyledList {...props} vertical={vertical}>
       {links.map(({ path, text }) => (
         <li key={uuidv4()}>
-          <StyledLink fade duration={0.4} border={border} to={path}>
+          <StyledLink border={border} to={path}>
             {text}
           </StyledLink>
         </li>
